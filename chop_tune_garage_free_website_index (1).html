@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChopTuneGarage Mobile Performance</title>
+  <meta name="description" content="Mobile mechanic + LS tuning. We bring the chop to your driveway. Frankfort, KY and surrounding areas." />
+  <!-- Tailwind Play CDN (simple, free, no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand: #8b5cf6; --brand2:#06b6d4; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .headline { font-family: 'Bebas Neue', cursive; letter-spacing: .02em; }
+    .neon { background-image: linear-gradient(90deg, #22d3ee, #a855f7, #f472b6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .glass { backdrop-filter: blur(10px); background: rgba(0,0,0,.35); }
+  </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100">
+  <script>
+    // 🔧 QUICK SETTINGS — update these 3 lines and you’re live
+    const COTY_PHONE = "+1-555-555-5555"; // TODO: replace with your number
+    const COTY_EMAIL = "book@choptunegarage.com"; // TODO: replace with your email
+    const BOOKING_LINK = "https://idlechoppintuner.com"; // You can swap to your Google Form link when ready
+  </script>
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur border-b border-neutral-800">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl bg-gradient-to-br from-cyan-400 via-fuchsia-500 to-pink-400"></div>
+        <span class="font-bold tracking-wide">ChopTuneGarage</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-neutral-300">
+        <a class="hover:text-white" href="#services">Services</a>
+        <a class="hover:text-white" href="#packages">Packages</a>
+        <a class="hover:text-white" href="#about">About</a>
+        <a class="hover:text-white" href="#booking">Booking</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#booking" class="hidden md:inline-block rounded-xl px-4 py-2 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold">Book Now</a>
+        <button id="menuBtn" class="md:hidden rounded-lg p-2 border border-neutral-800">☰</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-neutral-800">
+      <nav class="px-4 py-3 flex flex-col gap-3 text-neutral-300">
+        <a class="hover:text-white" href="#services">Services</a>
+        <a class="hover:text-white" href="#packages">Packages</a>
+        <a class="hover:text-white" href="#about">About</a>
+        <a class="hover:text-white" href="#booking">Booking</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-fuchsia-500/5 to-cyan-500/5 pointer-events-none"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-16 pb-12 grid lg:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="headline text-5xl sm:text-6xl leading-tight">We Bring the <span class="neon">Chop</span> to Your Driveway</h1>
+        <p class="mt-4 text-neutral-300 max-w-xl">Mobile mechanic + LS tuning in <span class="font-semibold">Frankfort, KY</span> and surrounding areas. Cam installs, DOD/AFM deletes, headers, diagnostics, and rowdy chop tunes.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <!-- TODO: Replace links below with your real booking + contact info -->
+          <a id="ctaBookNow" href="#" class="rounded-xl px-5 py-3 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-bold">Book Now</a>
+          <a id="ctaCallNow" href="#" class="rounded-xl px-5 py-3 border border-neutral-700 hover:border-neutral-500">Call Now</a>
+          <a id="ctaEmail" href="#" class="rounded-xl px-5 py-3 border border-neutral-700 hover:border-neutral-500">Email</a>
+        </div>
+        <p class="text-xs text-neutral-400 mt-2">Replace the placeholder links above with your phone, email, or Google Form for free booking.</p>
+      </div>
+      <div class="relative">
+        <div class="rounded-3xl p-1 bg-gradient-to-r from-cyan-500 to-fuchsia-500">
+          <div class="rounded-2xl glass p-6">
+            <div class="text-sm text-neutral-300">Featured Package</div>
+            <div class="mt-1 text-2xl font-extrabold">Stage 2 Chop Package</div>
+            <ul class="mt-3 text-neutral-300 list-disc list-inside space-y-1">
+              <li>Cam + Springs + Pushrods</li>
+              <li>DOD/AFM Delete</li>
+              <li>Headers + Custom Tune</li>
+            </ul>
+            <div class="mt-4 text-3xl font-black">$3,500</div>
+            <a href="#booking" class="mt-4 inline-block rounded-xl px-4 py-2 bg-neutral-100 text-black font-semibold">Book This Package</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="mx-auto max-w-7xl px-4 py-16">
+    <h2 class="headline text-4xl">Services</h2>
+    <p class="text-neutral-300 mt-2">Fast, mobile, and tuned for results.</p>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-neutral-800 p-6 hover:border-neutral-600">
+        <h3 class="font-bold">Mobile Diagnostics</h3>
+        <p class="text-neutral-400">Check engine lights, driveability, base logs.</p>
+        <div class="mt-3 text-lg font-extrabold">$75</div>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6 hover:border-neutral-600">
+        <h3 class="font-bold">Chop Tunes (Idle & Street)</h3>
+        <p class="text-neutral-400">Rowdy idle, clean drivability. Remote or on-site.</p>
+        <div class="mt-3 text-lg font-extrabold">$450</div>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6 hover:border-neutral-600">
+        <h3 class="font-bold">Remote LS Tune</h3>
+        <p class="text-neutral-400">HP Tuners/MPVI3 logs + revisions.</p>
+        <div class="mt-3 text-lg font-extrabold">$350</div>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6 hover:border-neutral-600">
+        <h3 class="font-bold">Cam Swap + Tune</h3>
+        <p class="text-neutral-400">Stage 2 favorite. Includes base tune.</p>
+        <div class="mt-3 text-lg font-extrabold">$2,200</div>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6 hover:border-neutral-600">
+        <h3 class="font-bold">DOD/AFM Delete</h3>
+        <p class="text-neutral-400">New lifters, non-DOD valley cover, tune.</p>
+        <div class="mt-3 text-lg font-extrabold">$1,400–$1,800</div>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6 hover:border-neutral-600">
+        <h3 class="font-bold">Headers + Tune</h3>
+        <p class="text-neutral-400">Install + fueling/spark dial-in.</p>
+        <div class="mt-3 text-lg font-extrabold">$1,500</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages / Pricing -->
+  <section id="packages" class="bg-neutral-900/40 py-16">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="headline text-4xl">Packages</h2>
+      <p class="text-neutral-300 mt-2">Transparent pricing. No shop needed — we come to you.</p>
+      <div class="mt-8 grid lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-neutral-800 p-6">
+          <div class="text-sm text-neutral-400">Most Popular</div>
+          <div class="text-2xl font-extrabold">Stage 2 Chop Package</div>
+          <div class="text-3xl font-black mt-2">$3,500</div>
+          <ul class="mt-3 text-neutral-300 list-disc list-inside space-y-1">
+            <li>Cam + Springs + Pushrods</li>
+            <li>DOD/AFM Delete</li>
+            <li>Headers + Custom Tune</li>
+          </ul>
+          <a href="#booking" class="mt-4 inline-block rounded-xl px-4 py-2 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold">Book</a>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 p-6">
+          <div class="text-2xl font-extrabold">Cam Swap + Tune</div>
+          <div class="text-3xl font-black mt-2">$2,200</div>
+          <ul class="mt-3 text-neutral-300 list-disc list-inside space-y-1">
+            <li>Stage 2 Cam Install</li>
+            <li>Base & Idle Tune</li>
+            <li>Street Dial-In</li>
+          </ul>
+          <a href="#booking" class="mt-4 inline-block rounded-xl px-4 py-2 border border-neutral-700">Details</a>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 p-6">
+          <div class="text-2xl font-extrabold">Remote LS Tune</div>
+          <div class="text-3xl font-black mt-2">$350</div>
+          <ul class="mt-3 text-neutral-300 list-disc list-inside space-y-1">
+            <li>MPVI3 Logs + Revisions</li>
+            <li>Idle + Part-Throttle</li>
+            <li>WOT Optional (wideband)</li>
+          </ul>
+          <a href="#booking" class="mt-4 inline-block rounded-xl px-4 py-2 border border-neutral-700">Book Remote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Why Us -->
+  <section id="about" class="mx-auto max-w-7xl px-4 py-16">
+    <h2 class="headline text-4xl">Why ChopTuneGarage?</h2>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-neutral-800 p-6">
+        <div class="font-bold">Mobile Convenience</div>
+        <p class="text-neutral-400">No shop needed. We show up, wrench, and tune on-site.</p>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6">
+        <div class="font-bold">Real LS Expertise</div>
+        <p class="text-neutral-400">Stage 2 cams, DOD deletes, headers, boost prep — daily.</p>
+      </div>
+      <div class="rounded-2xl border border-neutral-800 p-6">
+        <div class="font-bold">Content-Backed</div>
+        <p class="text-neutral-400">“Guess That Cam” vibes. Your chop, your moment — filmed (optional).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking" class="bg-neutral-900/40 py-16">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="headline text-4xl">Book Your Chop</h2>
+      <p class="text-neutral-300 mt-2">Free to host, free to share. Replace the links with your real contact or Google Form.</p>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-neutral-800 p-6">
+          <div class="font-bold">Fast Booking (Recommended)</div>
+          <p class="text-neutral-400">Use a free Google Form and paste the link here:</p>
+          <a id="ctaBookingForm" href="#" class="mt-3 inline-block rounded-xl px-4 py-2 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black font-semibold">Open Booking Form</a>
+          <p class="text-xs text-neutral-500 mt-2">How: Google Drive → New → Form → Share link → Replace URL.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 p-6">
+          <div class="font-bold">Direct Contact</div>
+          <ul class="mt-2 text-neutral-300 space-y-2">
+            <li>📞 <a id="contactPhone" class="underline" href="#">Call or Text</a></li>
+            <li>✉️ <a id="contactEmail" class="underline" href="#">Email</a></li>
+            <li>🔗 <a class="underline" href="https://idlechoppintuner.com" target="_blank" rel="noopener">IdleChoppinTuner.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-800">
+    <div class="mx-auto max-w-7xl px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-neutral-400">
+      <div>© <span id="year"></span> ChopTuneGarage • Frankfort, KY</div>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-neutral-200" href="#">TikTok</a>
+        <a class="hover:text-neutral-200" href="#">Instagram</a>
+        <a class="hover:text-neutral-200" href="#">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+  </script>
+  <script>
+    // Wire up CTAs using the quick settings
+    const telLink = 'tel:' + COTY_PHONE.replace(/[^0-9+]/g, '');
+    const mailLink = 'mailto:' + COTY_EMAIL;
+
+    function safeHref(el, href) { if (el) el.setAttribute('href', href); }
+
+    safeHref(document.getElementById('ctaBookNow'), BOOKING_LINK);
+    safeHref(document.getElementById('ctaBookingForm'), BOOKING_LINK);
+    safeHref(document.getElementById('ctaCallNow'), telLink);
+    safeHref(document.getElementById('ctaEmail'), mailLink);
+    safeHref(document.getElementById('contactPhone'), telLink);
+    safeHref(document.getElementById('contactEmail'), mailLink);
+  </script>
+</body>
+</html>
